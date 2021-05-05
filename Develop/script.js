@@ -14,8 +14,7 @@ generateBtn.addEventListener("click", writePassword);
 function generatePassword() {
   console.log("my function ")
   //set password length
-  var PasswordLength = window.prompt ('How many characters? Enter between 8-128');
-  PasswordLength = parseInt (PasswordLength)
+  var PasswordLength = parseInt(window.prompt ('How many characters? Enter between 8-128'));
   console.log(typeof PasswordLength)
 
   if (PasswordLength < 8 || PasswordLength > 128) {
@@ -23,28 +22,25 @@ function generatePassword() {
     console.log('password length is out of the range')
     return ""
   }
-  console.log('password length is valid.'); //you had "success" before, but I like specific console messages.
+  console.log('password length is valid.'); 
 
   var possibleChars = [] //We'll add characters into this array for each "yes" we get from a confirm statement!
 
   var numericIncluded = window.confirm ("Do you want to include numbers?");
   console.log(typeof numericIncluded);
-  var lowercaseIncluded = window.confirm("Do you want to include lowercase?");
-  console.log(typeof lowercaseIncluded);
-  var uppercaseIncluded = window.confirm("Do you want to include uppercase?");
-  console.log(typeof uppercaseIncluded);
-  var specialcharIncluded = window.confirm("Do you want to include special characters?");
-  console.log(typeof specialcharIncluded);
-
   if (numericIncluded === true) {
     possibleChars = numeric
   }
+  var lowercaseIncluded = window.confirm("Do you want to include lowercase?");
+  console.log(typeof lowercaseIncluded);
   if (lowercaseIncluded === true) {
     possibleChars = LowerCase
   }
   if (lowercaseIncluded === true && numericIncluded === true) {
     possibleChars = numeric + LowerCase
   }
+  var uppercaseIncluded = window.confirm("Do you want to include uppercase?");
+  console.log(typeof uppercaseIncluded);
   if (uppercaseIncluded === true) {
     possibleChars = UpperCase
   }
@@ -57,11 +53,13 @@ function generatePassword() {
   if (uppercaseIncluded === true && lowercaseIncluded === true && numericIncluded === true) {
     possibleChars = numeric + LowerCase + UpperCase
   }
-  // if (specialcharIncluded === true && uppercaseIncluded === true && lowercaseIncluded === true && numeric === true)
-  // for (var i = 0; i < possibleChars.length; i++) {
-  //   var possibleChars = Math.floor(Math.random)() * PasswordLength) +1;
-  // }
-  console.log(possibleChars);
+  var specialcharIncluded = window.confirm("Do you want to include special characters?");
+  console.log(typeof specialcharIncluded);
+
+  for (var i = 0; i < length; i++) {
+    var password = Math.floor(Math.random() * PasswordLength);
+  }
+  console.log(password[i]);
     
     //add the contents of numeric to possibleChars
 
@@ -75,7 +73,6 @@ function generatePassword() {
   // var numeric = window.confirm ("Do you want to include numbers?");
   // console.log(typeof numeric);
   // if (numeric === true) {
-  //   //let's work on this.
   // };
 
 };
