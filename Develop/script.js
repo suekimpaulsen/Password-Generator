@@ -18,88 +18,87 @@ function generatePassword() {
   //set password length
   var PasswordLength = window.prompt ('How many characters? Enter between 8-128');
   PasswordLength = parseInt (PasswordLength)
-  console.log(typeof PasswordLength)
+  console.log(PasswordLength)
+
   if (PasswordLength < 8 || PasswordLength > 128) {
     alert('Please select a number between 8-128');
     console.log('password length is not in the range')
     return ""
   }
-
-  console.log('password length is valid.'); //you had "success" before, but I like specific console messages.
-
-  var numericIncluded = window.confirm ("Do you want to include numbers?");
-  console.log(numericIncluded);
-  var lowercaseIncluded = window.confirm("Do you want to include lower case?");
-  console.log (lowercaseIncluded)
-  var uppercaseIncluded = window.confirm("Do you want to include uppercase?");
-  console.log(uppercaseIncluded);
-  var specialcharIncluded = window.confirm("Do you want to include special characters?");
-  console.log(specialcharIncluded);
-
-  for (var i = 0; i < PasswordLength; i++) {
+  else if (PasswordLength >= 8 && PasswordLength < 128) {
+    console.log ('password length is valid');
+    var numericIncluded = window.confirm ("Do you want to include numbers?");
+    var lowercaseIncluded = window.confirm("Do you want to include lower case?");
+    var uppercaseIncluded = window.confirm("Do you want to include uppercase?");
+    var specialcharIncluded = window.confirm("Do you want to include special characters?");
     var possibleChars = [];
-   
-    if (numericIncluded === true) {
-      possibleChars = numeric;
+    switch (numericIncluded) {
+      case true:
+        possibleChars = numeric;
+        break;
     }
-  
-    if (lowercaseIncluded === true) {
-      var possibleChars = LowerCase;
+    switch (lowercaseIncluded) {
+      case true:
+        possibleChars = [].concat(possibleChars, LowerCase);
+        break;
     }
-    if (lowercaseIncluded === true && numericIncluded === true) {
-      var possibleChars = [].concat (numeric, LowerCase);
+    switch (uppercaseIncluded) {
+      case true:
+        possibleChars = [].concat (possibleChars, UpperCase);
+        break;
     }
-  
-    if (uppercaseIncluded === true) {
-      var possibleChars = UpperCase;
+    switch (specialcharIncluded) {
+      case true:
+        possibleChars = [].concat (possibleChars, SpecialCharacters);
+        break;
     }
-    if (uppercaseIncluded === true && lowercaseIncluded === true) {
-      var possibleChars = [].concat (UpperCase, LowerCase);
-    }
-    if (uppercaseIncluded === true && numericIncluded === true) {
-      var possibleChars = [].concat (numeric, UpperCase);
-    }
-    if (uppercaseIncluded === true && lowercaseIncluded === true && numericIncluded === true) {
-      var possibleChars = [].concat (numeric, LowerCase, UpperCase);
-    }
-  
-    if (specialcharIncluded === true) {
-      var possibleChars = SpecialCharacters;
-    }
-    if (specialcharIncluded === true && uppercaseIncluded === true) {
-      var possibleChars = [].concat (SpecialCharacters, UpperCase)
-    }
-    if (specialcharIncluded === true && lowercaseIncluded === true) {
-    var possibleChars = [].concat (SpecialCharacters, LowerCase)
-    }
-    if (specialcharIncluded === true && numeric === true) {
-      var possibleChars = [].concat (SpecialCharacters, numeric)
-
-    if (specialcharIncluded === true && uppercaseIncluded === true && lowercaseIncluded === true) {
-      var possibleChars = [].concat (SpecialCharacters, UpperCase, LowerCase)
-    }
-
-    if (specialcharIncluded === true && uppercaseIncluded === true && numericIncluded === true) {
-      var possibleChars = [].concat (SpecialCharacters, UpperCase, numeric)
-    }
-
-    if (specialcharIncluded === true && lowercaseIncluded === true && numericIncluded === true) {
-      var possibleChars = [].concat (SpecialCharacters, LowerCase, numeric)
-    }
-
-    }
-    if (specialcharIncluded === true && uppercaseIncluded === true && lowercaseIncluded === true && numeric === true) {
-      var possibleChars = [].concat (SpecialCharacters, UpperCase, LowerCase, numeric)
-    }
-    
+    console.log(numericIncluded, lowercaseIncluded, uppercaseIncluded, specialcharIncluded);
     console.log(possibleChars);
 
-    var RandomPassword = Math.floor(Math.random() * PasswordLength);
-    var RandomElement = possibleChars[RandomPassword];
-    
-    console.log(RandomElement); 
-  }
+    for (var i = 0; i < PasswordLength; i++) {
+      var RandomPassword = possibleChars[Math.floor(Math.random() * PasswordLenght)];
+      console.log(RandomPassword);
+    }
 
+    // for (var i = 0; i < PasswordLength; i++) {
+    //   var possibleChars = [];
+    //   switch (numericIncluded) {
+    //     case true:
+    //       possibleChars = numeric;
+    //       break;
+    //   }
+    //   switch (lowercaseIncluded) {
+    //     case true:
+    //       possibleChars = [].concat(possibleChars, LowerCase);
+    //       break;
+    //   }
+    //   switch (uppercaseIncluded) {
+    //     case true:
+    //       possibleChars = [].concat (possibleChars, UpperCase);
+    //       break;
+    //   }
+    //   switch (specialcharIncluded) {
+    //     case true:
+    //       possibleChars = [].concat (possibleChars, SpecialCharacters);
+    //       break;
+    //   }
+    //   var RandomPassword = possibleChars[Math.floor(Math.random() * PasswordLength)];
+    //   console.log(RandomPassword);
+    // }
+    // console.log(numericIncluded, lowercaseIncluded, uppercaseIncluded, specialcharIncluded);
+    // console.log(possibleChars);
+  }
+  
+
+
+  // for (var i = 0; i < PasswordLength; i++) {
+  //   function possibleChars([]) {
+  //     switch (possibleChars)
+   
+  //   var RandomPassword = possibleChars[Math.floor(Math.random() * PasswordLength)];
+  //   console.log(RandomPassword[i]);
+  // }
+  // console.log(possibleChars);
   return "result"
 };
 var numeric = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9'];
