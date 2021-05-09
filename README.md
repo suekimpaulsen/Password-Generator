@@ -57,7 +57,7 @@ When the user clicks `Generate Password`,
     }
     ```
     
-    If the user wanted 8 characters long, selected `yes` for numbers, uppercase, and special characters, the page will provide a randomly generated password:
+    If the user wanted **8** characters long, selected `yes` for **numbers, uppercase, and special characters**, the page will provide a randomly generated password:
 
     ![RandomPassword3Options](./Assets/random-password-3options.png)
 
