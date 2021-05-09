@@ -34,7 +34,7 @@ function generatePassword() {
         possibleChars = numeric;
         break;
     }
-    var lowercaseIncluded = window.confirm("Do you want to include lower case?");
+    var lowercaseIncluded = window.confirm("Do you want to include lowercase?");
     switch (lowercaseIncluded) {
       case true:
         possibleChars = [].concat(possibleChars, lowercase);
@@ -58,7 +58,7 @@ function generatePassword() {
       var randomPassword = possibleChars[Math.floor(Math.random() * possibleChars.length)];
       newPassword += randomPassword
     }
-    
+
     return newPassword
   }
 

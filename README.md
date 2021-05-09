@@ -37,7 +37,7 @@ When the user clicks `Generate Password`,
         possibleChars = numeric;
         break;
     }
-    var lowercaseIncluded = window.confirm("Do you want to include lower case?");
+    var lowercaseIncluded = window.confirm("Do you want to include lowercase?");
     switch (lowercaseIncluded) {
       case true:
         possibleChars = [].concat(possibleChars, lowercase);
@@ -56,6 +56,12 @@ When the user clicks `Generate Password`,
         break;
     }
     ```
+    
+    If the user wanted 8 characters long, selected `yes` for numbers, uppercase, and special characters, the page will provide a randomly generated password:
+
+    ![RandomPassword3Options](./Assets/random-password-3options.png)
+
+
 2. When the user does not want to create a password:
     - the user can choose cancel when the prompt is asking for its length. The user will return to this:
 
